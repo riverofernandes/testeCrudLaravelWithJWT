@@ -5,9 +5,9 @@ Certifique-se de ter o PHP instalado em seu sistema.
 Clone o repositório do projeto.
  
 dentro do repositório rode contem arquivo para o docker use o seguinte comando
-./vendor/bin/sail up
-ou 
-sail up
+## ./vendor/bin/sail up
+## ou 
+## sail up
 
 No diretório do projeto, execute o seguinte comando para gerar uma chave secreta para o JWT funcionar:
 
