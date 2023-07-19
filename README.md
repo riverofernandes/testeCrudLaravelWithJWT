@@ -1,6 +1,6 @@
 Este arquivo contém instruções para executar e usar um aplicativo que utiliza autenticação JWT e permite a criação, recuperação, atualização e exclusão de produtos.
 
-Configuração
+#Configuração
 Certifique-se de ter o PHP instalado em seu sistema.
 Clone o repositório do projeto.
  
@@ -13,7 +13,7 @@ No diretório do projeto, execute o seguinte comando para gerar uma chave secret
 
 php artisan jwt:secret
 
-Criação de Usuário
+#Criação de Usuário
 No diretório do projeto, execute o seguinte comando para iniciar o Tinker:
 
 php artisan tinker
@@ -21,7 +21,7 @@ Para criar um novo usuário de exemplo, execute o seguinte comando dentro do Tin
 
 User::factory()->create();
 Exemplo de resposta:
-
+```json
 {
     "name": "Charlotte Bahringer",
     "email": "srippin@example.com",
@@ -30,35 +30,37 @@ Exemplo de resposta:
     "created_at": "2023-07-19 16:55:19",
     "id": 2
 }
+```
+
 Por padrão, a senha do usuário é 'password'. Para fazer login, use as seguintes credenciais:
 
 Email: "srippin@example.com"
 Senha: "password"
-Rotas
-Login
+#Rotas
+##Login
 Endpoint: POST localhost/api/login
 
 Envie as credenciais do usuário (email e senha) para autenticar e obter o token JWT necessário para as outras operações.
 
-Obter todos os produtos
+#Obter todos os produtos
 Endpoint: GET localhost/api/products
 
 Este endpoint retorna todos os produtos criados.
 
-Criar um novo produto
+#Criar um novo produto
 Endpoint: POST localhost/api/products
 
 Para criar um novo produto, envie uma solicitação POST com os seguintes campos obrigatórios:
 
 name: (string) Nome do produto.
 description: (string) Descrição do produto.
-Obter um produto específico
+#Obter um produto específico
 Endpoint: GET localhost/api/products/{id do produto}
 
 Este endpoint retorna as informações de um produto específico com base no ID fornecido.
 
 Exemplo de resultado:
-
+```json
 {
     "id": 1,
     "name": "teste",
@@ -66,16 +68,19 @@ Exemplo de resultado:
     "created_at": "2023-07-19T16:14:38.000000Z",
     "updated_at": "2023-07-19T16:14:38.000000Z"
 }
-Atualizar um produto
+```
+
+#Atualizar um produto
 Endpoint: PUT localhost/api/products/{id do produto}
 
 Para atualizar um produto existente, envie uma solicitação PUT com o ID do produto e os campos que deseja atualizar. Exemplo:
-
+```json
 {
     "name": "teste1",
     "description": "teste1"
 }
-Excluir um produto
+```
+#Excluir um produto
 Endpoint: DELETE localhost/api/products/{id do produto}
 
 Este endpoint exclui o produto com o ID fornecido.
